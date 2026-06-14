@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gay Dating SMM Promotion | Лучшее продвижение</title>
+    <meta name="description" content="Gay Dating SMM Promotion — профессиональное продвижение, активное общение и лучшие возможности для знакомств.">
+    <meta name="keywords" content="gay dating, SMM, продвижение, знакомства, чат, сообщество">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 16px 12px 32px;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ff9f2e;
+            font-size: 1.7rem;
+            letter-spacing: -0.3px;
+            cursor: pointer;
+            display: inline-block;
+            background: linear-gradient(135deg, #ff9f2e, #ffcc66);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+            font-weight: 700;
+        }
+
+        h1:active {
+            transform: scale(0.98);
+        }
+
+        /* login card */
+        .login-card {
+            background: #11161e;
+            border-radius: 28px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid #2a2f3a;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+            backdrop-filter: blur(2px);
+        }
+
+        .login-card input {
+            background: #1e242c;
+            border: 1px solid #2f3b46;
+            color: white;
+            font-size: 1rem;
+            padding: 14px 18px;
+            border-radius: 60px;
+            width: 100%;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .login-card input:focus {
+            border-color: #ff9f2e;
+            box-shadow: 0 0 0 2px rgba(255, 159, 46, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(95deg, #ff9f2e, #ffb347);
+            border: none;
+            color: #0a0a0a;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 14px;
+            border-radius: 60px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(255, 159, 46, 0.2);
+            margin-top: 18px;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+            background: #ff8c1a;
+        }
+
+        /* chat container */
+        .chat-container {
+            background: #0c0f14;
+            border-radius: 24px;
+            border: 1px solid #262c34;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+        #chat-window {
+            height: 58vh;
+            background: #0a0d12;
+            padding: 16px 12px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            scroll-behavior: smooth;
+        }
+
+        /* custom scroll */
+        #chat-window::-webkit-scrollbar {
+            width: 5px;
+        }
+        #chat-window::-webkit-scrollbar-track {
+            background: #1a1f26;
+            border-radius: 8px;
+        }
+        #chat-window::-webkit-scrollbar-thumb {
+            background: #ff9f2e;
+            border-radius: 8px;
+        }
+
+        .msg-bubble {
+            background: #151c24;
+            padding: 12px 14px;
+            border-radius: 20px;
+            border: 1px solid #2a313b;
+            transition: all 0.1s ease;
+            animation: fadeSlideUp 0.2s ease;
+        }
+
+        .msg-thread {
+            margin-left: 20px;
+            border-left: 3px solid #ff9f2e;
+            padding-left: 10px;
+        }
+
+        .msg-nick {
+            font-weight: 700;
+            color: #ffb347;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .msg-time {
+            font-size: 0.7rem;
+            color: #8e9aaf;
+            display: inline-block;
+        }
+
+        .msg-text {
+            margin-top: 6px;
+            word-break: break-word;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+
+        .msg-image {
+            max-width: 100%;
+            max-height: 240px;
+            border-radius: 16px;
+            margin-top: 10px;
+            border: 1px solid #2c3340;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* action buttons */
+        .msg-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .btn-act {
+            background: #1f2937;
+            color: #ffb75e;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-act:active {
+            transform: scale(0.94);
+            background: #2d3a48;
+        }
+
+        .btn-danger {
+            background: #4a1e2c;
+            color: #ff8a7a;
+        }
+
+        /* input area */
+        .input-area {
+            padding: 14px 16px;
+            background: #0c1017;
+            border-top: 1px solid #232933;
+        }
+
+        .reply-badge {
+            background: #1e2a36;
+            border-radius: 30px;
+            padding: 5px 12px;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: #ffbc6e;
+        }
+
+        .reply-badge span {
+            font-weight: bold;
+        }
+
+        .reply-cancel {
+            background: none;
+            border: none;
+            color: #ffa559;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .file-label {
+            background: #1e2937;
+            padding: 8px 12px;
+            border-radius: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: inline-block;
+            margin: 6px 0;
+        }
+
+        .flex-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        #msg {
+            flex: 1;
+            background: #1a212b;
+            border: 1px solid #2f3a46;
+            border-radius: 60px;
+            padding: 12px 16px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        #msg:focus {
+            border-color: #ff9f2e;
+        }
+
+        .send-btn {
+            background: #ff9f2e;
+            border: none;
+            width: auto;
+            padding: 0 20px;
+            border-radius: 60px;
+            font-weight: bold;
+            color: #0a0a0a;
+            margin-top: 0;
+        }
+
+        .attach-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .file-info {
+            font-size: 0.7rem;
+            color: #a0abb9;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="brand-header">
+        <h1 onclick="triggerAdminMode()">🏳️‍🌈 Gay Dating SMM Promotion</h1>
+        <p style="font-size: 12px; color: #777; margin-top: 5px;">общение 🔥 лайки 🔥 продвижение</p>
+    </div>
+
+    <!-- LOGIN SECTION -->
+    <div id="login-area">
+        <div class="login-card">
+            <div style="font-size: 2rem; margin-bottom: 10px;">✨💬</div>
+            <input type="text" id="nick-input" placeholder="Твой крутой никнейм..." maxlength="24">
+            <button class="btn-primary" onclick="joinChat()">➡️ ВОЙТИ В ЧАТ</button>
+            <p style="font-size: 12px; color: #aaa; margin-top: 16px;">Активное SMM-сообщество, знакомства без границ</p>
+        </div>
+    </div>
+
+    <!-- CHAT AREA (hidden initially) -->
+    <div id="chat-area" style="display: none;">
+        <div class="chat-container">
+            <div id="chat-window"></div>
+            <div class="input-area">
+                <div id="replyPreview" style="display: none;" class="reply-badge">
+                    💬 Ответ для <span id="replyNickSpan"></span>
+                    <button class="reply-cancel" onclick="clearReply()">✖</button>
+                </div>
+                <div class="flex-row">
+                    <input type="text" id="msg" placeholder="Напиши сообщение...">
+                    <button class="send-btn" onclick="sendMessage()">→</button>
+                </div>
+                <div class="attach-wrapper">
+                    <label class="file-label" for="fileInput">📎 Загрузить фото</label>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <span id="fileNameDisplay" class="file-info"></span>
+                </div>
+                <div style="font-size: 11px; text-align: center; margin-top: 8px; color: #5f6c80;">
+                    🏳️‍🌈 Дружелюбный чат | жми 🔗 чтобы поделиться постом
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+
+<script>
+    // ---------- FIREBASE CONFIG ----------
+    const firebaseConfig = {
+        apiKey: "AIzaSyC5L2GQ-2CYj-GNYsHENASdvKVF68rsEb0",
+        databaseURL: "https://metaimperiya-14d1b-default-rtdb.europe-west1.firebasedatabase.app",
+    };
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+    const messagesRef = database.ref('messages');
+
+    // ---------- GLOBALS ----------
+    let currentUser = "";
+    let isAdmin = localStorage.getItem('smm_admin_mode') === 'true';
+    let activeReplyId = null;
+    let activeReplyNick = null;
+
+    // DOM elements
+    const loginDiv = document.getElementById('login-area');
+    const chatDiv = document.getElementById('chat-area');
+    const chatWindow = document.getElementById('chat-window');
+    const msgInput = document.getElementById('msg');
+    const fileInput = document.getElementById('fileInput');
+    const fileNameSpan = document.getElementById('fileNameDisplay');
+    const replyPreviewDiv = document.getElementById('replyPreview');
+    const replyNickSpan = document.getElementById('replyNickSpan');
+
+    // ---------- Helper Functions ----------
+    function joinChat() {
+        const nickname = document.getElementById('nick-input').value.trim();
+        if (!nickname) {
+            alert("Пожалуйста, введите никнейм! 🏳️‍🌈");
+            return;
+        }
+        if (nickname.length > 24) {
+            alert("Ник не длиннее 24 символов");
+            return;
+        }
+        currentUser = nickname;
+        localStorage.setItem('smm_username', currentUser);
+        loginDiv.style.display = 'none';
+        chatDiv.style.display = 'block';
+        // clear reply state after join
+        clearReply();
+        // scroll to bottom
+        setTimeout(() => {
+            if (chatWindow) chatWindow.scrollTop = chatWindow.scrollHeight;
+        }, 100);
+    }
+
+    function clearReply() {
+        activeReplyId = null;
+        activeReplyNick = null;
+        replyPreviewDiv.style.display = 'none';
+        msgInput.placeholder = "Напиши сообщение...";
+    }
+
+    function setReply(messageId, nick) {
+        activeReplyId = messageId;
+        activeReplyNick = nick;
+        replyNickSpan.innerText = nick;
+        replyPreviewDiv.style.display = 'flex';
+        msgInput.placeholder = `Ответ для ${nick}...`;
+        msgInput.focus();
+    }
+
+    function shareMessageLink(messageId) {
+        const url = new URL(window.location.href);
+        url.hash = `msg-${messageId}`;
+        navigator.clipboard.writeText(url.toString());
+        // временное уведомление
+        const toast = document.createElement('div');
+        toast.innerText = '🔗 Ссылка на сообщение скопирована!';
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%)';
+        toast.style.background = '#ff9f2e';
+        toast.style.color = '#0a0a0a';
+        toast.style.padding = '8px 18px';
+        toast.style.borderRadius = '60px';
+        toast.style.fontWeight = 'bold';
+        toast.style.zIndex = '999';
+        toast.style.fontSize = '0.85rem';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 1800);
+    }
+
+    async function sendMessage() {
+        const text = msgInput.value.trim();
+        const file = fileInput.files[0];
+        if (!text && !file) return;
+
+        const messageObj = {
+            nick: currentUser,
+            msg: text || "📸 фото",
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute:'2-digit' }),
+            timestamp: Date.now(),
+            likes: 0,
+            likedBy: []  // для защиты от накрутки (простая проверка)
+        };
+
+        if (activeReplyId) {
+            messageObj.parentID = activeReplyId;
+            messageObj.replyToNick = activeReplyNick;
+        }
+
+        if (file) {
+            if (file.size > 2 * 1024 * 1024) {
+                alert("Файл не больше 2 МБ");
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                messageObj.img = e.target.result;
+                messagesRef.push(messageObj).then(() => {
+                    // success
+                }).catch(err => console.warn);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            messagesRef.push(messageObj).catch(err => console.warn);
+        }
+
+        // reset interface
+        msgInput.value = '';
+        fileInput.value = '';
+        fileNameSpan.innerText = '';
+        clearReply();
+    }
+
+    function likeMessage(messageId, currentLikes, currentUserId) {
+        // простой anti-spam через localStorage по конкретному сообщению (неидеально, но демо)
+        const likeKey = `liked_${messageId}_${currentUser}`;
+        if (localStorage.getItem(likeKey)) {
+            alert("Ты уже лайкнул это сообщение ❤️");
+            return;
+        }
+        // обновляем счётчик
+        const messageRef = database.ref(`messages/${messageId}`);
+        messageRef.transaction(currentData => {
+            if (currentData) {
+                let newLikes = (currentData.likes || 0) + 1;
+                return { ...currentData, likes: newLikes };
+            }
+            return currentData;
+        }).then(() => {
+            localStorage.setItem(likeKey, 'true');
+        }).catch(err => console.warn);
+    }
+
+    function deleteMessage(messageId) {
+        if (!isAdmin) {
+            alert("Нет прав администратора");
+            return;
+        }
+        if (confirm("Удалить это сообщение навсегда?")) {
+            database.ref(`messages/${messageId}`).remove().catch(err => alert("Ошибка"));
+        }
+    }
+
+    function activateAdminByPassword() {
+        const pwd = prompt("🔐 Введите пароль администратора:");
+        if (pwd === "12345") {
+            localStorage.setItem('smm_admin_mode', 'true');
+            isAdmin = true;
+            alert("✅ Администраторский режим активирован! Появились кнопки удаления.");
+            // обновляем интерфейс: перерисовка чата происходит автоматически через listener, но админ-кнопки появятся сразу
+            forceRefreshChat();
+        } else {
+            alert("Неверный пароль");
+        }
+    }
+
+    function forceRefreshChat() {
+        // просто триггерим повторную загрузку за счёт перерисовки, listener сам обновится
+        // вызов триггера
+        messagesRef.once('value', snap => renderMessages(snap));
+    }
+
+    function renderMessages(snapshot) {
+        if (!chatWindow) return;
+        const messagesArray = [];
+        snapshot.forEach(childSnap => {
+            const msg = childSnap.val();
+            const id = childSnap.key;
+            messagesArray.push({ id, ...msg });
+        });
+        // сортировка по времени (timestamp или порядку Firebase - используем порядок добавления)
+        messagesArray.sort((a,b) => (a.timestamp || 0) - (b.timestamp || 0));
+        
+        chatWindow.innerHTML = '';
+        for (let msg of messagesArray) {
+            const isReplyThread = !!msg.parentID;
+            const threadClass = isReplyThread ? 'msg-thread' : '';
+            const likeCount = msg.likes || 0;
+            const isCurrentAdmin = isAdmin;
+            
+            // Создаем элемент
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `msg-bubble ${threadClass}`;
+            if (msg.parentID) {
+                msgDiv.style.marginLeft = '20px';
+                msgDiv.style.borderLeft = '3px solid #ff9f2e';
+            }
+            
+            // Верхняя строка: ник + время + реплика если есть
+            let replyInfoHtml = '';
+            if (msg.replyToNick && msg.parentID) {
+                replyInfoHtml = `<span style="font-size:0.7rem; color:#ffb75e;">↪️ ответ для @${escapeHtml(msg.replyToNick)}</span><br>`;
+            }
+            
+            const nickHtml = `<div><span class="msg-nick">🏳️‍🌈 ${escapeHtml(msg.nick)}</span> <span class="msg-time">${escapeHtml(msg.time || 'только что')}</span> ${replyInfoHtml ? `<span>${replyInfoHtml}</span>` : ''}</div>`;
+            const textHtml = msg.msg ? `<div class="msg-text">${escapeHtml(msg.msg).replace(/\n/g, '<br>')}</div>` : '';
+            const imgHtml = msg.img ? `<img class="msg-image" src="${escapeHtml(msg.img)}" alt="photo" onclick="window.open(this.src)">` : '';
+            
+            // кнопки действий
+            const btnReply = `<button class="btn-act" data-action="reply" data-id="${msg.id}" data-nick="${escapeHtml(msg.nick)}">💬 Ответить</button>`;
+            const btnLike = `<button class="btn-act" data-action="like" data-id="${msg.id}" data-likes="${likeCount}">👍 ${likeCount}</button>`;
+            const btnShare = `<button class="btn-act" data-action="share" data-id="${msg.id}">🔗 Поделиться</button>`;
+            let btnDelete = '';
+            if (isCurrentAdmin) {
+                btnDelete = `<button class="btn-act btn-danger" data-action="delete" data-id="${msg.id}">🗑 Удалить</button>`;
+            }
+            
+            msgDiv.innerHTML = `
+                ${nickHtml}
+                ${textHtml}
+                ${imgHtml}
+                <div class="msg-actions">
+                    ${btnReply}
+                    ${btnLike}
+                    ${btnShare}
+                    ${btnDelete}
+                </div>
+            `;
+            
+            chatWindow.appendChild(msgDiv);
+        }
+        
+        // Добавляем обработчики событий (делегирование)
+        chatWindow.querySelectorAll('.btn-act').forEach(btn => {
+            btn.removeEventListener('click', handleActionClick);
+            btn.addEventListener('click', handleActionClick);
+        });
+        
+        // скролл вниз
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+        
+        // обработка hash для подсветки сообщения
+        if (window.location.hash && window.location.hash.startsWith('#msg-')) {
+            const targetId = window.location.hash.slice(5);
+            const targetElement = Array.from(chatWindow.querySelectorAll('.msg-bubble')).find(el => 
+                el.querySelector(`[data-action="reply"][data-id="${targetId}"]`) !== null
+            );
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                targetElement.style.transition = '0.3s';
+                targetElement.style.backgroundColor = '#2a2a3a';
+                setTimeout(() => { targetElement.style.backgroundColor = ''; }, 1200);
+                window.location.hash = '';
+            }
+        }
+    }
+    
+    function handleActionClick(event) {
+        const btn = event.currentTarget;
+        const action = btn.getAttribute('data-action');
+        const messageId = btn.getAttribute('data-id');
+        if (!messageId) return;
+        
+        if (action === 'reply') {
+            const nick = btn.getAttribute('data-nick');
+            setReply(messageId, nick);
+        } else if (action === 'like') {
+            likeMessage(messageId);
+        } else if (action === 'share') {
+            shareMessageLink(messageId);
+        } else if (action === 'delete') {
+            deleteMessage(messageId);
+        }
+        event.stopPropagation();
+    }
+    
+    // Функция likeMessage с защитой
+    function likeMessage(messageId) {
+        const likeKey = `liked_${messageId}_${currentUser}`;
+        if (localStorage.getItem(likeKey)) {
+            const toastMsg = document.createElement('div');
+            toastMsg.innerText = '❤️ Ты уже оценил это сообщение!';
+            toastMsg.style.cssText = 'position:fixed; bottom:70px; left:50%; transform:translateX(-50%); background:#333; color:#ffae42; padding:6px 14px; border-radius:30px; font-size:12px; z-index:1000;';
+            document.body.appendChild(toastMsg);
+            setTimeout(() => toastMsg.remove(), 1200);
+            return;
+        }
+        const msgRef = database.ref(`messages/${messageId}`);
+        msgRef.transaction(current => {
+            if (current) {
+                const newLikes = (current.likes || 0) + 1;
+                return { ...current, likes: newLikes };
+            }
+            return current;
+        }).then(() => {
+            localStorage.setItem(likeKey, 'true');
+        }).catch(console.warn);
+    }
+    
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+    
+    // Admin mode click on title
+    function triggerAdminMode() {
+        if (!isAdmin) {
+            activateAdminByPassword();
+        } else {
+            alert("Администратор уже активен. Нажми ещё раз, чтобы снять режим? (обнови страницу)");
+            if (confirm("Снять админ-режим? Потребуется повторный вход.")) {
+                localStorage.removeItem('smm_admin_mode');
+                location.reload();
+            }
+        }
+    }
+    
+    // file input preview
+    fileInput.addEventListener('change', function(e) {
+        if (fileInput.files.length > 0) {
+            fileNameSpan.innerText = `📷 ${fileInput.files[0].name.slice(0, 20)}`;
+        } else {
+            fileNameSpan.innerText = '';
+        }
+    });
+    
+    // press Enter for message sending
+    msgInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+    
+    // restore nick from local storage if needed (if page reloaded after login)
+    function tryAutoRestore() {
+        const savedNick = localStorage.getItem('smm_username');
+        if (savedNick && savedNick.trim()) {
+            currentUser = savedNick;
+            loginDiv.style.display = 'none';
+            chatDiv.style.display = 'block';
+            document.getElementById('nick-input').value = savedNick;
+            clearReply();
+        }
+        // check admin status after load
+        isAdmin = localStorage.getItem('smm_admin_mode') === 'true';
+    }
+    
+    // Firebase realtime listener
+    messagesRef.on('value', (snapshot) => {
+        if (chatDiv.style.display === 'block') {
+            renderMessages(snapshot);
+        }
+    });
+    
+    // start
+    tryAutoRestore();
+</script>
+</body>
+</html>
